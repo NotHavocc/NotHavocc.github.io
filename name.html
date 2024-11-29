@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>text anim generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="content">
+    <div>
+      <h1 class="text">text animation generator</h1>
+      <p class="text">
+        in the insert text textbox, write anything that you want. you can also
+        choose the color and animation. when done, press apply.
+      </p>
+      <input
+        type="text"
+        ,
+        id="textbox"
+        ,
+        name="textbox"
+        placeholder="Insert text" />
+      <input type="color" id="id03" , value="#ff5733" />
+      <select name="Animations" id="animations">
+        <option value="wobble">Wobble</option>
+        <option value="blink">Blink</option>
+        <option value="pulse">Pulse</option>
+        <option value="jelly">Jelly</option>
+        <option value="heartbeat">Heartbeat</option>
+        <option value="none">None</option>
+      </select>
+      <button type="button" , name="Apply" , onclick="changeText()">
+        Apply
+      </button>
+
+      <p>&nbsp</p>
+      <p class="animtext" id="text">sample text</p>
+      <p>&nbsp</p>
+      <a href="index.html" class="text">Back</a>
+    </div>
+    <script src="name.js"></script>
+  </body>
+</html>
