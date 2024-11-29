@@ -15,7 +15,7 @@ function changeText(){
         text.style.setProperty("--animation", "none");
     } else if(animations == "blink"){
         text.style.setProperty("--animation", "blink 2s ease 0s infinite normal forwards");
-    } else if(animations == "pulse"){
+    } else if(animations == "pulsefade"){
     text.style.setProperty("--animation", "pulsefade 2s ease 0s infinite normal forwards");
     } else if(animations == "jelly"){
         text.style.setProperty("--animation", "jello 2s ease 0s infinite normal forwards");
