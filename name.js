@@ -2,6 +2,7 @@ const text = document.getElementById("text");
 const textbox = document.getElementById("textbox");
 
 function changeText(){
+    console.log("button pressed");
     const colorbox = document.getElementById("id03").value;
     const animations = document.getElementById("animations").value;
 
