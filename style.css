@@ -1,190 +1,1012 @@
+@import url('https://fonts.cdnfonts.com/css/fixedsys');
+
 body {
-    font-family: 'Source Code Pro', monospace;
-    background-color: black;
-    color: white;
+    background-color: #008080;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    font-family: "Pixelated MS Sans Serif", Arial;
+    opacity: 0;
+    animation: siteFadeIn 1.5s ease-in forwards;
+    animation-delay: 0.2s;
 }
 
-.title {
+@keyframes siteFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#startup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    z-index: 99999;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: opacity 1s ease;
 }
 
-.text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
+#startup-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
 }
 
-.center-text {
-    display: flex;
-    justify-content: center;
+.overlay-content {
+    color: #ffffff;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    font-size: 18px;
     text-align: center;
-    width: 100%;
+    letter-spacing: 1px;
 }
 
-.links {
+.window-body p, 
+.window-body li, 
+.window-body label, 
+.window-body span {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 12px;
+}
+
+.window-body h1, 
+.window-body h2, 
+.window-body h3 {
+    font-size: 20px !important;
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+.desktop-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    color: white;
-}
-
-.navi {
-    display: flex;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-style: oblique;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15px;
-}
-
-.end {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-style: oblique;
-}
-
-.typing-container {
-    width: 100%;
-    max-width: 600px;
-    overflow-x: auto;
-    /* adds scroll on small screens */
-    display: flex;
-    justify-content: center;
-    padding: 0 10px;
+    gap: 20px;
+    padding: 20px;
+    padding-bottom: 80px;
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
+.window {
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
 
-.typing {
-    font-size: clamp(14px, 4vw, 16px);
-    white-space: normal;
-    /* allow wrapping */
-    word-wrap: break-word;
-    /* break long words if needed */
+.title-bar {
+    display: flex;
+    align-items: center;
+    padding: 3px 2px;
+}
+
+.title-bar-text {
+    flex: 1;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 4px;
+    font-size: 14px !important;
+}
+
+.title-bar-controls button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+}
+
+.title-bar-controls button::before {
+    margin: 0 !important;
+}
+
+.title-bar-controls button svg,
+.title-bar-controls button span {
+    margin: auto !important;
+    display: block !important;
+}
+
+.status-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 2px;
+    gap: 2px;
+    box-sizing: border-box;
+    background: #c0c0c0;
+    border-top: 1px solid #ffffff;
+}
+
+.status-bar-field {
+    margin: 0;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    border: 1px solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+
+.status-bar-field:first-child {
+    flex: 1; 
+}
+
+.status-bar-field:last-child {
+    flex: 0 0 auto;
+    min-width: 100px;
+}
+
+.notepad-window {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    max-width: 600px;
+}
+
+.notepad-menu-bar {
+    display: flex;
+    gap: 0;
+    padding: 2px 4px;
+    background: #c0c0c0;
+}
+
+.menu-item {
+    padding: 2px 8px;
+    font-size: 12px;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    cursor: default;
+    user-select: none;
+}
+
+.menu-item:hover {
+    background: #000080;
+    color: #ffffff;
+}
+
+.menu-item u {
+    text-decoration: underline;
+}
+
+.notepad-text-area {
+    flex: 1;
+    padding: 2px;
+    background: #c0c0c0;
+    overflow: hidden;
+}
+
+.notepad-content {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border: 2px solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    padding: 0 2px;
+    margin: 0;
+    
+    font-family: 'Fixedsys', 'Fixedsys Excelsior 3.01', monospace;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #000000;
+    
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+    
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.notepad-content * {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.notepad-content p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.notepad-content h1,
+.notepad-content h2,
+.notepad-content h3,
+.notepad-content h4,
+.notepad-content h5,
+.notepad-content h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.notepad-content ul,
+.notepad-content ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.notepad-content li {
+    margin: 0;
+    padding: 0;
+}
+
+.notepad-content div {
+    margin: 0;
+    padding: 0;
+}
+
+.notepad-content a {
+    color: #000000 !important;
+    font-weight: bold !important;
+    text-decoration: underline !important;
+    font-size: 16px !important;
+    cursor: pointer;
+}
+
+.notepad-content a:hover {
+    background: #000080 !important;
+    color: #ffffff !important;
+}
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    background: #c0c0c0;
+    padding: 2px 4px;
+    margin: 0;
+    height: 22px;
+    line-height: 18px;
+}
+
+.marquee-text {
     display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 15s linear infinite;
+    font-size: 14px;
 }
 
-
-.typing::after {
-    content: "_";
-    display: inline;
-    animation: blink 0.7s step-end infinite;
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
-.blinking-cursor::after {
-    content: "_";
-    animation: blink 1s step-start infinite;
+.about-discord-widget {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    padding: 8px;
+    margin-bottom: 10px;
 }
 
-@keyframes blink {
-    50% {
-        opacity: 0;
+.about-discord-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.about-discord-avatar-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.about-discord-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid;
+    border-top-color: #808080;
+    border-left-color: #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    object-fit: cover;
+    background: #fff;
+    display: block;
+}
+
+.about-status-indicator {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #c0c0c0;
+    background: #808080;
+}
+
+.about-status-indicator.online { background: #3ba55c; }
+.about-status-indicator.idle { background: #faa61a; }
+.about-status-indicator.dnd { background: #ed4245; }
+.about-status-indicator.offline { background: #808080; }
+
+.about-discord-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.about-discord-name {
+    font-weight: bold;
+    color: #000;
+    font-size: 14px;
+    direction: ltr !important;
+    unicode-bidi: plaintext !important;
+}
+
+.about-discord-status-text {
+    color: #404040;
+    font-size: 12px;
+    direction: ltr !important;
+    unicode-bidi: plaintext !important;
+    text-align: left !important;
+}
+
+.discord-user-panel {
+    background: #c0c0c0;
+    border: 2px solid;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    padding: 8px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+.avatar-container {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid;
+    border-top-color: #404040;
+    border-left-color: #404040;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    object-fit: cover;
+    background: #c0c0c0;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #c0c0c0;
+    background: #808080;
+}
+
+.status-indicator.online { background: #00aa00; }
+.status-indicator.idle { background: #ffaa00; }
+.status-indicator.dnd { background: #ff0000; }
+.status-indicator.offline { background: #808080; }
+
+.user-details {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.username-row {
+    margin-bottom: 2px;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+}
+
+.status-text, .activity-text {
+    font-size: 12px;
+    color: #404040;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+}
+
+.activity-text {
+    margin-top: 2px;
+}
+
+.explorer-window {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    max-width: 600px;
+    background: #c0c0c0;
+}
+
+.explorer-menu-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 2px 4px;
+    background: #c0c0c0;
+}
+
+.menu-bar-flag {
+    margin-left: auto;
+    height: 20px;
+    width: auto;
+    image-rendering: pixelated;
+    cursor: pointer;
+}
+
+.explorer-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #c0c0c0;
+    margin-bottom: 2px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+}
+
+.tb-img {
+    height: 46.5px;
+    width: auto;
+    cursor: pointer;
+    image-rendering: pixelated;
+    display: block;
+    flex-shrink: 0; 
+}
+
+.tb-img:hover {
+    filter: brightness(1.1);
+}
+
+.tb-img:active {
+    filter: brightness(0.95);
+}
+
+.tb-divider {
+    width: 4px;
+    height: 24px;
+    flex-shrink: 0; 
+}
+
+.explorer-address-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px;
+    background: #c0c0c0;
+}
+
+.address-label {
+    font-size: 11px;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+}
+
+.address-dropdown {
+    flex: 1;
+    background: #ffffff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+}
+
+.address-icon {
+    width: 16px;
+    height: 16px;
+    image-rendering: pixelated;
+}
+
+.dropdown-arrow {
+    margin-left: auto;
+    font-size: 10px;
+}
+
+.explorer-main {
+    flex: 1;
+    background: #ffffff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    margin: 0 2px 2px 2px;
+    padding: 8px;
+    overflow-y: auto;
+}
+
+.file-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-content: flex-start;
+}
+
+.file-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+    padding: 4px;
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.file-item:hover {
+    background: #000080;
+    color: #ffffff;
+    border: 1px dotted #ffffff;
+}
+
+.file-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+    image-rendering: pixelated;
+}
+
+.file-name {
+    font-size: 11px;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 1.2;
+}
+
+.explorer-window .status-bar {
+    display: flex;
+    padding: 2px;
+    background: #c0c0c0;
+    gap: 2px;
+}
+
+.explorer-window .status-bar-field {
+    margin: 0;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    flex: 1;
+}
+
+@media (max-width: 480px) {
+    .explorer-window {
+        height: 350px;
+    }
+    .file-grid {
+        gap: 12px;
+    }
+    .file-item {
+        width: 60px;
+    }
+    .file-icon {
+        width: 28px;
+        height: 28px;
     }
 }
 
-.status {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
-    text-align: center;
+@media (max-width: 768px) {
+    .desktop-container {
+        padding: 8px;
+        padding-bottom: 70px;
+        gap: 12px;
+    }
+
+    .window {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .title-bar-text {
+        font-size: 12px !important;
+    }
+
+    .title-bar-controls button {
+        width: 18px !important;
+        height: 18px !important;
+        min-width: 18px !important;
+        min-height: 18px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+    }
+
+    .title-bar-controls button::before {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        bottom: auto !important;
+        right: auto !important;
+        margin: 0 !important;
+    }
+
+    .window-body p, 
+    .window-body li, 
+    .window-body label, 
+    .window-body span {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        word-wrap: break-word;
+    }
+
+    .marquee-container {
+        height: 20px;
+        line-height: 16px;
+        padding: 1px 2px;
+    }
+
+    .marquee-text {
+        font-size: 12px;
+    }
+
+    .about-discord-widget {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+
+    .about-discord-inner {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .about-discord-avatar-wrapper {
+        flex-shrink: 0;
+        margin: 0 !important;
+    }
+
+    .about-discord-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .about-status-indicator {
+        width: 12px;
+        height: 12px;
+    }
+
+    .about-discord-info {
+        flex: 1;
+        min-width: 0;
+        text-align: left !important;
+        direction: ltr !important;
+        unicode-bidi: embed !important;
+    }
+
+    .about-discord-name {
+        font-size: 14px;
+    }
+
+    .about-discord-status-text {
+        font-size: 11px;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+
+    .notepad-window {
+        height: 200px;
+    }
+
+    .notepad-menu-bar {
+        flex-wrap: wrap;
+    }
+
+    .menu-item {
+        font-size: 11px;
+        padding: 2px 4px;
+    }
+
+    .notepad-content {
+        font-size: 14px;
+    }
+
+    .notepad-content a {
+        font-size: 14px !important;
+    }
+
+    .status-bar-field {
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+
+    button {
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+    }
+
+    .window-body img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
 }
 
-.status>* {
-    flex: 0 1 auto;
-    max-width: 100%;
+@media (max-width: 480px) {
+    .desktop-container {
+        padding: 4px;
+        padding-bottom: 65px;
+        gap: 8px;
+    }
+
+    .window-body p, 
+    .window-body li, 
+    .window-body label, 
+    .window-body span {
+        font-size: 13px !important;
+    }
+
+    .title-bar-text {
+        font-size: 11px !important;
+    }
+
+    .title-bar-controls button {
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        min-height: 16px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+    }
+
+    .title-bar-controls button::before {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        bottom: auto !important;
+        right: auto !important;
+        margin: 0 !important;
+    }
+
+    .marquee-container {
+        height: 18px;
+    }
+
+    .marquee-text {
+        font-size: 11px;
+    }
+
+    .about-discord-avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .about-discord-name {
+        font-size: 13px;
+    }
+
+    .about-discord-status-text {
+        font-size: 10px;
+    }
+
+    .notepad-content {
+        font-size: 12px;
+    }
+
+    .notepad-content a {
+        font-size: 12px !important;
+    }
+
+    .notepad-window {
+        height: 200px;
+    }
+
+    .menu-item {
+        font-size: 10px;
+    }
+
+    .status-bar-field {
+        font-size: 9px;
+    }
+}
+
+.win98-taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 2px;
     box-sizing: border-box;
+    z-index: 9999;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    font-size: 11px;
+    gap: 2px;
+}
+
+.start-btn {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    box-shadow: inset -1px -1px #000000, inset 1px 1px #dfdfdf;
+    
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: auto !important;
+    min-width: 0 !important;
+    flex: 0 0 auto !important;
+    
+    padding: 2px 6px !important;
+    height: 22px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    color: #000000;
+    gap: 4px;
+    margin-right: 2px;
+}
+
+.start-btn:active {
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    box-shadow: inset 1px 1px #000000;
+    padding: 3px 5px 1px 7px !important;
+}
+
+.start-logo {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    display: block;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.taskbar-divider {
+    width: 2px;
+    height: 22px;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #ffffff;
+    flex-shrink: 0;
+    margin: 0 2px;
+}
+
+.taskbar-apps {
+    display: flex;
+    gap: 2px;
+    flex: 1;
+    overflow-x: auto;
+    padding: 0 2px;
+    scrollbar-width: none;
+}
+.taskbar-apps::-webkit-scrollbar {
+    display: none;
+}
+
+.taskbar-app {
+    background: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #404040;
+    border-bottom: 2px solid #404040;
+    box-shadow: inset -1px -1px #000000;
+    text-decoration: none;
+    color: #000000;
+    padding: 2px 8px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    font-size: 11px;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    cursor: pointer;
+}
+
+.taskbar-app:hover {
+    background: #d4d0c8;
+}
+
+.taskbar-app.active {
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    box-shadow: inset 1px 1px #000000;
+    background: #c0c0c0;
+    font-weight: bold;
+}
+
+.app-icon-img, .tray-icon-img {
+    width: 16px;
+    height: 16px;
+    display: block;
+    flex-shrink: 0;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    pointer-events: none;
+}
+
+.system-tray {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 2px 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 20px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.tray-clock {
+    font-size: 11px;
+    font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+    color: #000000;
 }
 
 @media (max-width: 600px) {
-    .status {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+    .taskbar-app span {
+        display: none;
     }
-}
-
-
-
-.satellite-widget {
-    width: 100%;
-    max-width: 400px;
-    overflow-x: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.satellite-widget iframe {
-    max-width: 100%;
-    width: 100%;
-    height: 500px;
-}
-
-
-
-.img-div {
-    display: flex;
-    justify-content: center;
-}
-
-.gif {
-    width: 10%;
-}
-
-.screen-fade {
-    animation: fadeInScreen 2s ease forwards;
-}
-
-@keyframes fadeInScreen {
-    0% {
-        opacity: 0;
-        filter: brightness(0);
+    .taskbar-app {
+        padding: 2px 6px;
     }
-
-    100% {
-        opacity: 1;
-        filter: brightness(1);
+    .start-btn strong {
+        display: none;
     }
-}
-
-body,
-* {
-    opacity: 0;
-    animation: fadeInScreen 2s ease forwards, flicker 1s infinite;
-}
-
-.gallery {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 8px;
-}
-
-.gallery img {
-  width: 250px;
-  height: auto;
-  max-width: 80vw;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-pre {
-  max-width: 100%;
-  overflow-x: auto;      /* horizontal scroll if content is too wide */
-  white-space: pre-wrap; /* wrap long lines instead of overflowing */
-  word-wrap: break-word;
-  box-sizing: border-box;
 }

@@ -1,0 +1,190 @@
+body {
+    font-family: 'Source Code Pro', monospace;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.center-text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.navi {
+    display: flex;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: oblique;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+}
+
+.end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: oblique;
+}
+
+.typing-container {
+    width: 100%;
+    max-width: 600px;
+    overflow-x: auto;
+    /* adds scroll on small screens */
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+
+.typing {
+    font-size: clamp(14px, 4vw, 16px);
+    white-space: normal;
+    /* allow wrapping */
+    word-wrap: break-word;
+    /* break long words if needed */
+    overflow: hidden;
+    display: inline-block;
+}
+
+
+.typing::after {
+    content: "_";
+    display: inline;
+    animation: blink 0.7s step-end infinite;
+}
+
+.blinking-cursor::after {
+    content: "_";
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.status {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.status>* {
+    flex: 0 1 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .status {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+
+
+.satellite-widget {
+    width: 100%;
+    max-width: 400px;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.satellite-widget iframe {
+    max-width: 100%;
+    width: 100%;
+    height: 500px;
+}
+
+
+
+.img-div {
+    display: flex;
+    justify-content: center;
+}
+
+.gif {
+    width: 10%;
+}
+
+.screen-fade {
+    animation: fadeInScreen 2s ease forwards;
+}
+
+@keyframes fadeInScreen {
+    0% {
+        opacity: 0;
+        filter: brightness(0);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
+
+body,
+* {
+    opacity: 0;
+    animation: fadeInScreen 2s ease forwards, flicker 1s infinite;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+}
+
+.gallery img {
+  width: 250px;
+  height: auto;
+  max-width: 80vw;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}

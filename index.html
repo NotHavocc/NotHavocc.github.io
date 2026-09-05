@@ -1,55 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="style.css?v=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nothavoc.xyz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <title>nothavoc.is-a.dev</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
+
 <body>
-    <div class="navi">
-        <p><a class="navi" href="index.html">> home</a></p>
-        <p><a class="navi"href="projects.html">> projects</a></p>
-        <p><a class="navi"href="status.html">> HAM corner</a></p>
+    <audio id="win98-audio" src="audio/startup.mp3" preload="auto"></audio>
+    <div id="startup-overlay">
+        <div class="overlay-content">
+            <p>Click anywhere to start...</p>
+        </div>
     </div>
-    <div class="title">
-        <h1>welcome to nothavoc.xyz<span class="blinking-cursor"></span></h1>
-    </div>
-    <div class="text">
-        <p>hello, you can call me havoc. im a python, arduino, and web developer. this is my personal website where i will upload my projects and social media links.</p>
-    </div>
-    <div class="text">
-        <p>to access the sources and the projects themselves, go to "projects" in the navbar.</p>
-    </div>
-        
-    
-    <div class="title">
-        <h2>> links and socials</h2>
-    </div>
-    <p><a  class="links" href="https://github.com/NotHavocc/PinkDesktopPet" target="_blank">- PinkDesktopPet</a></p>
-    <p><a  class="links" href="https://www.tiktok.com/@havoc.tech" target="_blank">- TikTok</a></p>
-    <p><a  class="links" href="https://github.com/NotHavocc" target="_blank">- GitHub</a></p>
-      <div class="title">
-        <h2>> contact me</h2>
-    </div>
-    <div class="text">
-        <u><p>- discord: nothavoc</p></u>
-    </div>
-    <div class="text">
-        <p><a  class="links" href="https://discord.gg/fDMsauzwdU" target="_blank">- CQConnect (HAM) discord server</a></p>
-    </div>
-    <div class="text">
-        <p><a  class="links" href="mailto:nothavonc@gmail.com" target="_blank">- email</a></p>
-    </div>
-    
-    <div class="text">
-        <span class="typing"></span>
+    <div class="desktop-container">
+        <div class="window" id="about">
+            <div class="title-bar">
+                <div class="title-bar-text">about_me.exe</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="marquee-container">
+                    <span class="marquee-text">
+                        ★ Welcome to nothavoc.is-a.dev !!! ★
+                    </span>
+                </div>
+                <p>hello, you can call me havoc. im a python, arduino, and web developer. this is my personal website
+                    where i will upload my projects and social media links.</p>
+                <h5 style="margin-top: 15px; margin-bottom: 5px;">&gt; Discord Status</h5>
+                <div id="about-discord-status" class="about-discord-widget">
+                    <span style="color: #808080;">Loading status...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="window explorer-window">
+            <div class="title-bar">
+                <div class="title-bar-text">C:\Projects - Explorer</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+
+            <div class="explorer-menu-bar">
+                <span class="menu-item"><u>F</u>ile</span>
+                <span class="menu-item"><u>E</u>dit</span>
+                <span class="menu-item"><u>V</u>iew</span>
+                <span class="menu-item"><u>H</u>elp</span>
+
+                <img src="icons/flag.png" class="menu-bar-flag" alt="Windows">
+            </div>
+
+            <div class="explorer-toolbar">
+                <img src="icons/back.png" class="tb-img" alt="Back" title="Back">
+                <img src="icons/forward.png" class="tb-img" alt="Forward" title="Forward">
+                <img src="icons/up.png" class="tb-img" alt="Up" title="Up">
+
+                <div class="tb-divider"></div>
+
+                <img src="icons/cut.png" class="tb-img" alt="Cut" title="Cut">
+                <img src="icons/copy.png" class="tb-img" alt="Copy" title="Copy">
+                <img src="icons/paste.png" class="tb-img" alt="Paste" title="Paste">
+
+                <div class="tb-divider"></div>
+
+                <img src="icons/undo.png" class="tb-img" alt="Undo" title="Undo">
+                <img src="icons/delete.png" class="tb-img" alt="Delete" title="Delete">
+                <img src="icons/properties.png" class="tb-img" alt="Properties" title="Properties">
+            </div>
+            <div class="explorer-address-bar">
+                <span class="address-label">Address</span>
+                <div class="address-dropdown">
+                    <img src="icons/folder.png" class="address-icon" alt="Folder">
+                    <span>C:\Projects</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+            </div>
+            <div class="explorer-main">
+                <div class="file-grid">
+
+                    <a href="https://github.com/NotHavocc/PinkDesktopPet" class="file-item">
+                        <img src="icons/pdp.png" class="file-icon" alt="pfp">
+                        <span class="file-name">PinkDesktopPet</span>
+                    </a>
+
+                    <a href="https://addons.mozilla.org/en-US/firefox/addon/egg-room/" class="file-item">
+                        <img src="icons/eggroom.png" class="file-icon" alt="eggroom">
+                        <span class="file-name">eggroom-extension (firefox store)</span>
+                    </a>
+
+                    <a href="https://github.com/NotHavocc/eggroom-extension" class="file-item">
+                        <img src="icons/eggroom.png" class="file-icon" alt="eggroom2">
+                        <span class="file-name">eggroom-extension (.zip source code)</span>
+                    </a>
+
+                    <a href="https://github.com/NotHavocc/pifmtx-neo" class="file-item">
+                        <img src="icons/pifmtx.png" class="file-icon" alt="pifm">
+                        <span class="file-name">PiFmTx-neo</span>
+                    </a>
+
+                    <a href="https://github.com/NotHavocc/InkplateImageUpload" class="file-item">
+                        <img src="icons/inkplate.png" class="file-icon" alt="iiu">
+                        <span class="file-name">InkplateImageUpload</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <footer class="status-bar">
+                <p class="status-bar-field">5 object(s)</p>
+                <p class="status-bar-field">My Computer</p>
+            </footer>
+        </div>
+
+        <div class="window notepad-window">
+            <div class="title-bar">
+                <div class="title-bar-text">Socials.txt - Notepad</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="notepad-menu-bar">
+                <span class="menu-item"><u>F</u>ile</span>
+                <span class="menu-item"><u>E</u>dit</span>
+                <span class="menu-item"><u>S</u>earch</span>
+                <span class="menu-item"><u>H</u>elp</span>
+            </div>
+            <div class="notepad-text-area">
+                <div class="notepad-content"><p>My Socials ↓ ↓ ↓</p><p> </p><p><a href="https://www.tiktok.com/@havoc.tech" target="_blank">&gt; TikTok (@havoc.tech)</a></p><p><a href="https://github.com/NotHavocc" target="_blank">&gt; GitHub (NotHavocc)</a></p><p><a href="mailto:nothavonc@gmail.com" target="_blank">&gt; E-Mail</a></p></div>
+            </div>
+            <footer class="status-bar">
+                <p class="status-bar-field">Ln 1, Col 1</p>
+                <p class="status-bar-field">Windows (CRLF)</p>
+            </footer>
+        </div>
     </div>
 
-    <div class="end">
-        <p>made by nothavoc/havoc, 2026</span></p>
+    <div class="win98-taskbar">
+        <button class="start-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+            <img src="icons/start.png" class="start-logo" alt="Start">
+            <strong>Start</strong>
+        </button>
+
+        <div class="taskbar-divider"></div>
+
+        <div class="taskbar-apps">
+            <a href="#about" class="taskbar-app active">
+                <img src="icons/home.png" class="app-icon-img" alt="Home">
+                <span>Home</span>
+            </a>
+            <a href="status.html" class="taskbar-app">
+                <img src="icons/hamcorner.png" class="app-icon-img" alt="Projects">
+                <span>HAMCorner (old)</span>
+            </a>
+            <a href="https://github.com/NotHavocc" target="_blank" class="taskbar-app">
+                <img src="icons/github.png" class="app-icon-img" alt="GitHub">
+                <span>GitHub</span>
+            </a>
+        </div>
+
+        <div class="system-tray">
+            <img src="icons/audio.png" class="tray-icon-img" alt="Volume" title="Volume">
+            <span class="tray-clock" id="win98-clock">12:00 PM</span>
+        </div>
+
     </div>
-    <script src="script.js"></script>
 </body>
+
 </html>
