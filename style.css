@@ -43,6 +43,35 @@ body {
     letter-spacing: 1px;
 }
 
+.typing-container {
+    width: 100%;
+    max-width: 600px;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.typing {
+    font-size: clamp(14px, 4vw, 16px);
+    white-space: normal;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.typing::after {
+    content: "_";
+    display: inline;
+    animation: blink 0.7s step-end infinite;
+}
+
+.blinking-cursor::after {
+    content: "_";
+    animation: blink 1s step-start infinite;
+}
+
 .window-body p, 
 .window-body li, 
 .window-body label, 
